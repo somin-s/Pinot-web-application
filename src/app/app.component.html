@@ -1,0 +1,55 @@
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+     <div fxHide.gt-xs>
+       <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+     <div>
+          Wine Analysis - Pinot Noir Nz
+     </div>
+     <div fxFlex fxLayout fxLayoutAlign="flex-end"  fxHide.xs>
+      <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+          <li>
+          <a mat-menu-item  routerLink="/" routerLinkActive="active-link">
+              <mat-icon class="icon">dashboard</mat-icon>
+              <span class="label">Dashboard</span>
+          </a>
+          </li>
+          <li>
+          <a mat-menu-item routerLink="/ArcGis" routerLinkActive = "active-link">
+                <mat-icon class="icon">language</mat-icon>
+                <span  class="label">ArcGIS data</span>
+          </a>     
+          </li>
+          <li>
+            <a mat-menu-item routerLink="/DataSet" routerLinkActive = "active-link">
+                  <mat-icon class="icon">dataset</mat-icon>
+                  <span  class="label">Data & download</span>
+            </a>     
+            </li>
+          <li>
+            <div *ngIf="!signedIn">
+            <a mat-menu-item routerLink="/login" routerLinkActive = "active-link">
+                <mat-icon class="icon">assignment_ind</mat-icon>
+                <span class="label" >Admin login</span>
+            </a>
+            </div>
+          </li>
+          <li>
+            <div *ngIf="signedIn">
+              <a mat-menu-item routerLink="/login" routerLinkActive = "active-link">
+                  <mat-icon class="icon">assignment_ind</mat-icon>
+                  <span class="label" >Signed in ({{User}})</span>
+              </a>
+              </div>
+          </li>
+      </ul>
+   </div>
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
